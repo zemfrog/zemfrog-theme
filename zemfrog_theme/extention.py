@@ -3,7 +3,7 @@ import os
 from zemfrog.scaffold import Scaffold
 from zemfrog.helper import import_attr
 
-def init_extension(app: Scaffold):
+def init_app(app: Scaffold):
     template_dir = os.path.join(app.root_path, app.template_folder)
     searchpath = app.jinja_loader.searchpath
     next_idx = searchpath.index(template_dir) + 1

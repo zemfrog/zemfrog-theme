@@ -1,1 +1,1 @@
-from .extention import init_extension
+from .extention import init_app
