@@ -9,5 +9,9 @@ def init_app(app: Scaffold):
     next_idx = searchpath.index(template_dir) + 1
     for theme in app.config.get("ZEMFROG_THEMES", []):
         theme = import_attr(f"{theme}.get_template")()
-        if theme not in searchpath:
-            searchpath.insert(next_idx, theme)
+        if not isinstance(theme, (list, tuple)):
+            theme = (theme,)
+
+        for t in theme:
+            if t not in searchpath:
+                searchpath.insert(next_idx, t)
